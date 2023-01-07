@@ -1,0 +1,17 @@
+more-itertools
+setproctitle
+colorama
+libtorrent
+importlib-metadata
+ordered-set
+orjson
+async-timeout
+contextlib2
+py-cord
+py-cord[voice]
+yt-dlp
+aiohttp
+asyncio
+beautifulsoup4
+spotipy
+art
