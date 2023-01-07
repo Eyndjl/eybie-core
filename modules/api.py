@@ -5,8 +5,6 @@ from asyncio import sleep as asleep
 from discord.ext.commands import has_permissions
 from config_eybie import settings, version_info, splashes
 
-print(datetime.datetime.now())
-
 #Необходимые директории для нормальной работы
 if not os.path.isdir(f"logs"):
     os.mkdir(f'logs')
@@ -63,7 +61,6 @@ async def devinf(ctx):
 async def devinf_error(ctx, error):
     embed = discord.Embed(title=error_text, description=" ", colour=0xFFE933)
     await ctx.response.send_message(embed=embed, ephemeral=True)
-    logging.error(f"Возникла ошибка при использовании команды: /devinf пользователем {ctx.author.name}, с id: {ctx.author.id}")
 
 #Скрипты при запуске
 art.tprint(f"|Eybie  v{eybie_ver}|") #Поставил два пробела из-за слишком малого расстояния между символами в art.tprint
