@@ -23,6 +23,7 @@ eybie_reldate = version_info['rel_date']
 eybie_ver = version_info['version']
 eybie_distro = version_info['distribution']
 eybie_name = settings['bot_name']
+eybie_avatar = open(settings['avatar_path'], 'rb').read()
 
 #Необходимо для работоспособности основных функций
 bot = discord.Bot()
@@ -46,12 +47,15 @@ logging.basicConfig(
 
 #ARGS = "ARGS" #основа для параметров запуска
 
-#Обновление статуса
+#Скрипты после запуска Eybie
 @bot.event
 async def on_ready():
     logging.info("Установка имени...")
     await bot.user.edit(username=eybie_name) #Изменение имени согласно настройкам
     logging.info(f"Имя Eybie изменено на \"{eybie_name}\"")
+    logging.info("Установка аватара...")
+    await bot.user.edit(avatar=eybie_avatar)
+    logging.info(f"Аватар Eybie изменён на \"{settings['avatar_path']}\"")
     while True:
         random_splash = random.randint(0, len(splashes) - 1)
         await bot.change_presence(status=discord.Status.online, activity=discord.Game(f"v{eybie_ver} | {splashes[random_splash]}"))
